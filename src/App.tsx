@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux"
+import { Header } from "./components/Header"
+import { ProductList } from "./components/ProductsList/ProductList"
+import { GlobalStyle } from "./style/GlobalStyle"
+import { store } from "./redux/store"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    //envolvendo app no provider do reduce 
+    // store - ideia de armazenar , passando o que estamos armazenando
+    <Provider store={store}>
+      
+      <Header/>
+
+      <ProductList/>
+
+      <GlobalStyle/>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
