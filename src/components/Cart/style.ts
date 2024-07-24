@@ -35,4 +35,4 @@ export const CartProductItem = styled.li`
 
 `
 
-export const CartTotal = styled.strong`
+export const CartTotal = styled.strong``
