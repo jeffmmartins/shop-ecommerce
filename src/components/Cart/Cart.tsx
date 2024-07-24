@@ -30,4 +30,5 @@ export const Cart: React.FC <CartProps> = ({showCart,cart}) => {
                 </S.CartTotal>
             </S.Container>
         </>
-    
+    )
+}

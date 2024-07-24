@@ -1,4 +1,4 @@
-import { ProductCard } from "../ProductCard/ProductCard"
+import { ProductCard } from "../ProductCart/ProductCart"
 import * as S from "./style"
 import {products} from "../../data/products"
 
