@@ -10,7 +10,7 @@ export const Cart: React.FC <CartProps> = ({showCart,cart}) => {
     
 
     const cartTotal = cart.reduce((totalCart, product) => {
-        return product.price + totalCart
+        return totalCart + product.price
     },0)
 
     return (
