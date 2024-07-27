@@ -27,6 +27,10 @@ describe('Cart > Unit Test', () => {
     })
 
     it('Should render a cart with two products', () => {
-        render(<Cart showCart={true} cart={[]}/>)
+        render(<Cart showCart={true} cart={cart}/>)
+
+        const productItemElements = screen.getAllByRole("listitem") // tags Li, getall retorna um array.
+
+        expect(productItemElements.length).toBe(2)
     })
 })
