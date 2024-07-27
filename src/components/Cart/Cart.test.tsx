@@ -1,4 +1,3 @@
-import  "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { Cart } from "./Cart"
 
@@ -14,7 +13,10 @@ describe('Cart > Unit Test', () => {
         
         // testando se tem o title Carrinho
         const titleElement = screen.getByRole("heading", {level: 1})
+        //pegando o elemento que criamos de atributo no html
+        const totalELement = screen.getByTestId("total")
 
         expect(titleElement).toHaveTextContent("Carrinho")
+        expect(totalELement).toHaveTextContent("$0.00")
     })
 })
