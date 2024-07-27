@@ -16,6 +16,7 @@ describe('Cart > Unit Test', () => {
         //pegando o elemento que criamos de atributo no html
         const totalELement = screen.getByTestId("total")
         const cartListElement = screen.getByRole("list") // ul
+        screen.debug(cartListElement) // passa um console.log , porem somente para debug nao deixar no codigo 
 
         expect(titleElement).toHaveTextContent("Carrinho")
         expect(totalELement).toHaveTextContent("$0.00")
