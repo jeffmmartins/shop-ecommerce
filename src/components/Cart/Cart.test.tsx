@@ -15,8 +15,10 @@ describe('Cart > Unit Test', () => {
         const titleElement = screen.getByRole("heading", {level: 1})
         //pegando o elemento que criamos de atributo no html
         const totalELement = screen.getByTestId("total")
+        const cartListElement = screen.getByRole("list") // ul
 
         expect(titleElement).toHaveTextContent("Carrinho")
         expect(totalELement).toHaveTextContent("$0.00")
+        expect(cartListElement).toBeEmptyDOMElement()
     })
 })
