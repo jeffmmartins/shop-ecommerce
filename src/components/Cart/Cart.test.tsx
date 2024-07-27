@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react"
 import { Cart } from "./Cart"
+import { products } from "../../data/products"
+
+const cart = products.slice(0, 2) // obetendo apenas dois produtos do array 
 
 
 // Mock: tornar a biblioteca redux fake 
@@ -21,5 +24,9 @@ describe('Cart > Unit Test', () => {
         expect(titleElement).toHaveTextContent("Carrinho")
         expect(totalELement).toHaveTextContent("$0.00")
         expect(cartListElement).toBeEmptyDOMElement()
+    })
+
+    it('Should render a cart with two products', () => {
+        render(<Cart showCart={true} cart={[]}/>)
     })
 })
