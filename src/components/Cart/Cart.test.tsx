@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { Cart } from "./Cart"
 
 
@@ -10,5 +10,10 @@ jest.mock('react-redux')
 describe('Cart > Unit Test', () => {
     it('Should render an empty cart correctly', () => {
         render(<Cart  showCart={true} cart={[]}/>) // indica se o cart deve ser mostrado ou não, passando o cart vazio porque é a proposta do teste 
+        
+        // testando se tem o title Carrinho
+        const titleElement = screen.getByRole("heading", {level: 1})
+
+        expect(titleElement).toHaveTextContent("Carrinho")
     })
 })
