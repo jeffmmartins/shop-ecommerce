@@ -30,7 +30,16 @@ describe('Cart > Unit Test', () => {
         render(<Cart showCart={true} cart={cart}/>)
 
         const productItemElements = screen.getAllByRole("listitem") // tags Li, getall retorna um array.
+        const firstProductElemente = screen.getByText(cart[0].title)
+        const secondProductElemente = screen.getByText(cart[1].title)
+        
 
         expect(productItemElements.length).toBe(2)
+        expect(firstProductElemente).toBeInTheDocument()
+        expect(secondProductElemente).toBeInTheDocument()
+    })
+
+    it('Should remove product when remove button is cliecked', () => {
+        
     })
 })
