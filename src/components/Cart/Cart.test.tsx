@@ -1,14 +1,24 @@
 import { render, screen } from "@testing-library/react"
 import { Cart } from "./Cart"
 import { products } from "../../data/products"
+import { useDispatch } from "react-redux"
 
 const cart = products.slice(0, 2) // obetendo apenas dois produtos do array 
+
+// para verificar se ela foi chamada ou não 
+const mockDispaatch = jest.fn()
 
 
 // Mock: tornar a biblioteca redux fake 
 // metodo do jest para mockar as coisas 
 // vai ser chamado porem nao vai acontecer nada
-jest.mock('react-redux')
+// posso também passar o que essa biblioteca deve retornar .
+jest.mock('react-redux', () => {
+    return{
+        useDispatch: () => {
+            return mockDispaatch; // agora informa o que é esse usedispatch retorna uma função  , mockanco uma função. 
+    }
+}})
 
 describe('Cart > Unit Test', () => {
     it('Should render an empty cart correctly', () => {
@@ -40,6 +50,6 @@ describe('Cart > Unit Test', () => {
     })
 
     it('Should remove product when remove button is cliecked', () => {
-        
+
     })
 })
