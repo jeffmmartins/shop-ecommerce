@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react"
 import { Cart } from "./Cart"
 import { products } from "../../data/products"
 import { useDispatch } from "react-redux"
+import userEvent from "@testing-library/user-event"
 
 const cart = products.slice(0, 2) // obetendo apenas dois produtos do array 
 
@@ -16,7 +17,7 @@ const mockDispaatch = jest.fn()
 jest.mock('react-redux', () => {
     return{
         useDispatch: () => {
-            return mockDispaatch; // agora informa o que é esse usedispatch retorna uma função  , mockanco uma função. 
+            return mockDispaatch; // agora informa o que é esse usedispatch retorna uma função  , mockando uma função. 
     }
 }})
 
@@ -50,6 +51,13 @@ describe('Cart > Unit Test', () => {
     })
 
     it('Should remove product when remove button is cliecked', () => {
+        render(<Cart showCart={true} cart={[products[0]]}/>) // passando um produto 
+        
+        const removeProductButton = screen.getByRole("button", {name: "Remover"})
 
+        // evento clicando no botão
+        userEvent.click(removeProductButton)
+
+        expect(mockDispaatch).toHaveBeenCalled() // esperando que essa função seja chamada, testando o componente se a função esta realmente sendo chamada  
     })
 })
